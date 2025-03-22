@@ -40,7 +40,12 @@ h1{
 
 .output-container{
     width: 50%;
-    margin: 0 auto;
-    padding: 10px 0;
+    margin: 10px auto;
+
     background-color: rgb(226, 168, 61);
+}
+#output{
+    text-align: center;
+    color: black;
+    padding: 10px 0;
 }
