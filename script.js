@@ -5,21 +5,25 @@ const button = document.getElementById("btn");
 button.addEventListener("click", () => {
     const inputVal = input.value;
     
-    if(inputVal === ""){
+    if(inputVal !== ""){
+        output.textContent = convertToNumera(inputVal)
+        
+    }else{
         output.textContent = "Input a valid number for conversion"
     }
 })
 
-function convertToNumera(){
-    const array1 = [1,4,5,9,10,40,50,90,100,400,500,900,1000];
-    const array2 = ["i", "iv", "v", "ix", "x", "xl", "l", "xc", "c", "cd", "d", "cm", "m"];
+function convertToNumera(num){
+    const array1 = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    const array2 = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+
+    let result = '';
+  
     for (let i = 0; i < array1.length; i++){
-       let arrayIndex = array1[i];
-       for (let j = 0; j < array2.length; j++){
-        while(array1[i] > 0){
-            let finalResult = []
-            finalResult.push(array2[i])
+        while (num >= array1[i]){
+           result += array2[i]
+           num -= array1[i]
         }
-       }
     }
+    return result
 }
